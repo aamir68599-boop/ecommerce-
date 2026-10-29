@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Premium Saree · Header & Category</title>
+  <title>Silkora · Premium Saree Store</title>
 
   <style>
-    /* ============================================
-       CSS VARIABLES
-       ============================================ */
     :root {
       --primary-pink: #d81b60;
       --gold-border: #c9a84c;
@@ -22,10 +19,6 @@
       --max-width: 1280px;
       --transition: 0.25s ease;
     }
-
-    /* ============================================
-       RESET & BASE
-       ============================================ */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     body { font-family: var(--font-family); background: var(--bg-white); color: var(--text-color); line-height: 1.5; }
@@ -34,9 +27,6 @@
     ul { list-style: none; }
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
 
-    /* ============================================
-       ANNOUNCEMENT BAR — SLIDER
-       ============================================ */
     .announcement-bar { background: var(--bg-announcement); height: 28px; display: flex; align-items: center; justify-content: center; width: 100%; position: relative; overflow: hidden; }
     .announcement-bar .container { display: flex; align-items: center; justify-content: center; padding: 0 24px; height: 100%; width: 100%; position: relative; }
     .announcement-slider { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
@@ -45,17 +35,13 @@
     .announcement-slide.leaving { opacity: 0; transform: translateY(100%); }
     .announcement-slide span { color: #fff; font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 
-    /* ============================================
-       MAIN HEADER
-       ============================================ */
     .main-header { background: var(--bg-white); height: 80px; display: flex; align-items: center; border-bottom: 1px solid var(--border-color); }
     .main-header .container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%; height: 100%; padding: 0 24px; }
     .header-left { grid-column: 1 / 2; }
     .header-center { grid-column: 2 / 3; display: flex; justify-content: center; align-items: center; }
     .header-center .logo { display: flex; align-items: center; justify-content: center; }
-    .header-center .logo img { height: 64px; width: auto; object-fit: contain; display: block; }
-    .header-center .logo .logo-text { display: none; font-size: 26px; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; color: var(--text-color); }
-    .header-center .logo .logo-text span { color: var(--primary-pink); font-weight: 500; }
+    .header-center .logo .logo-text { display: block; font-size: 28px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: var(--text-color); font-family: 'Georgia', serif; }
+    .header-center .logo .logo-text span { color: var(--primary-pink); font-weight: 600; }
     .header-right { grid-column: 3 / 4; display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding-left: 16px; }
     .header-right .icon-btn { display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: var(--text-color); padding: 4px; transition: color var(--transition); position: relative; overflow: visible; }
     .header-right .icon-btn:hover { color: var(--primary-pink); }
@@ -69,9 +55,6 @@
     .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--text-color); flex-shrink: 0; position: relative; overflow: visible; }
     .hamburger-btn svg { width: 26px; height: 26px; display: block; }
 
-    /* ============================================
-       DESKTOP NAVIGATION
-       ============================================ */
     .nav-menu { background: var(--bg-white); border-bottom: 1px solid var(--border-color); height: 52px; display: flex; align-items: center; }
     .nav-menu .container { display: flex; align-items: center; justify-content: center; height: 100%; padding: 0 24px; }
     .nav-menu ul { display: flex; align-items: center; gap: 40px; height: 100%; }
@@ -81,36 +64,21 @@
     .nav-menu ul li a:hover { color: var(--primary-pink); }
     .nav-menu ul li a:hover::after { width: 100%; }
 
-    /* ============================================
-       MOBILE NAV
-       ============================================ */
     .mobile-nav { display: none; background: var(--bg-white); border-bottom: 1px solid var(--border-color); overflow: hidden; max-height: 0; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 24px; }
     .mobile-nav.open { max-height: 420px; padding: 16px 24px 24px; }
     .mobile-nav ul { display: flex; flex-direction: column; gap: 12px; }
     .mobile-nav ul li a { font-size: 13px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-color); padding: 6px 0; display: block; transition: color var(--transition); border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
     .mobile-nav ul li a:hover { color: var(--primary-pink); }
 
-    /* ============================================
-       HERO CAROUSEL
-       ============================================ */
     .hero-section { width: 100%; background: var(--bg-white); padding: 0; margin: 0; }
     .hero-carousel { position: relative; width: 100%; aspect-ratio: 1400 / 533; overflow: hidden; background: #f5ede0; }
     .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; visibility: hidden; transition: opacity 0.8s ease, visibility 0.8s ease; pointer-events: none; will-change: opacity, visibility; overflow: hidden; }
     .hero-slide.active { opacity: 1; visibility: visible; pointer-events: auto; }
-    .hero-slide::before { content: ''; position: absolute; inset: 0; background: #000; z-index: 2; pointer-events: none; opacity: 1; transform: scale(1); transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out; will-change: opacity, transform; }
-    .hero-slide.active::before { opacity: 0; transform: scale(2.5); }
-    .hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: brightness(0) blur(12px); transform: scale(1.1); transition: filter 1.1s ease, transform 1.1s ease; will-change: filter, transform; }
-    .hero-slide.active img { filter: brightness(1) blur(0); transform: scale(1); }
+    .hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-    /* ============================================
-       FEATURED IMAGE SECTION
-       ============================================ */
     .featured-image-section { width: 100%; height: 252px; display: flex; align-items: center; justify-content: center; gap: 16px; background: var(--bg-white); overflow: hidden; padding: 0 24px; }
     .featured-image-section img { max-height: 100%; max-width: 24%; object-fit: contain; display: block; }
 
-    /* ============================================
-       CATEGORY SECTION
-       ============================================ */
     .category-section { background: var(--bg-white); padding: 36px 0 44px; }
     .category-section .container { display: flex; flex-direction: column; align-items: center; }
     .category-grid { display: flex; align-items: flex-start; justify-content: center; gap: var(--circle-gap); width: 100%; flex-wrap: nowrap; }
@@ -120,9 +88,6 @@
     .category-circle img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .category-name { margin-top: 14px; font-size: 14px; font-weight: 500; color: var(--text-color); text-align: center; letter-spacing: 0.3px; line-height: 1.4; max-width: 100%; word-break: break-word; }
 
-    /* ============================================
-       SHOP BY COLLECTIONS SECTION
-       ============================================ */
     .collections-section { background: var(--bg-white); padding: 40px 0 60px; border-top: 1px solid var(--border-color); }
     .collections-heading { font-size: clamp(16px, 2vw, 22px); font-weight: 500; letter-spacing: 4px; text-transform: uppercase; text-align: center; color: var(--text-color); margin: 0 0 34px; line-height: 1.35; }
     .collections-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; width: 100%; }
@@ -131,9 +96,6 @@
     .collection-card:hover img { transform: scale(1.06); }
     .collection-label { position: absolute; left: 0; right: 0; bottom: 20px; z-index: 2; text-align: center; padding: 0 10px; color: #fff; font-family: 'Georgia', 'Times New Roman', serif; font-size: clamp(14px, 1.6vw, 22px); font-weight: 500; letter-spacing: 1px; line-height: 1.3; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
 
-    /* ============================================
-       SHOP BY CATEGORY SECTION
-       ============================================ */
     .shop-by-category-section { background: var(--bg-white); padding: 40px 0 60px; border-top: 1px solid var(--border-color); }
     .shop-by-category-section .section-heading { font-size: clamp(18px, 2.4vw, 26px); font-weight: 400; letter-spacing: 6px; text-transform: uppercase; text-align: center; color: var(--text-color); margin: 0 0 34px; line-height: 1.35; }
     .shop-category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; width: 100%; }
@@ -143,9 +105,6 @@
     .shop-category-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0) 60%); z-index: 1; pointer-events: none; }
     .shop-category-label { position: absolute; left: 0; right: 0; bottom: 18px; z-index: 2; text-align: center; padding: 0 12px; color: #fff; font-size: clamp(12px, 1.4vw, 18px); font-weight: 500; letter-spacing: 2px; text-transform: uppercase; line-height: 1.3; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
 
-    /* ============================================
-       NEW ARRIVALS SAREES — PRODUCT GRID
-       ============================================ */
     .new-arrivals-section { background: var(--bg-white); padding: 48px 0 60px; border-top: 1px solid var(--border-color); }
     .new-arrivals-section .section-title { font-size: clamp(20px, 3vw, 34px); font-weight: 400; letter-spacing: 7px; text-transform: uppercase; text-align: center; color: var(--text-color); margin: 0 0 38px; line-height: 1.35; }
     .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 26px; width: 100%; }
@@ -159,15 +118,9 @@
     .product-price { margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--text-color); letter-spacing: 0.3px; }
     .product-card:hover .product-name { color: var(--primary-pink); }
 
-    /* ============================================
-       VIEW ALL PRODUCTS BUTTON
-       ============================================ */
     .view-all-btn { display: block; width: fit-content; margin: 48px auto 0; padding: 16px 48px; background: #4B0082; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border: none; border-radius: 4px; cursor: pointer; transition: background 0.25s ease; text-decoration: none; text-align: center; }
     .view-all-btn:hover { background: #3a0066; }
 
-    /* ============================================
-       FOOTER SECTION
-       ============================================ */
     .trendoye-footer { background-color: #f8c8d8; color: #1a1a1a; padding: 50px 0 20px; font-size: 13px; border-top: 1px solid var(--border-color); }
     .footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(0,0,0,0.1); }
     .footer-col h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; }
@@ -196,12 +149,8 @@
     .footer-selectors span { cursor: pointer; display: flex; align-items: center; gap: 5px; }
     .footer-copyright { text-align: center; font-size: 11px; color: #666; margin-top: 20px; width: 100%; }
 
-    /* ============================================
-       RESPONSIVE
-       ============================================ */
     @media (max-width: 1024px) {
       :root { --circle-size: 150px; --circle-gap: 24px; }
-      .header-center .logo img { height: 48px; }
       .header-center .logo .logo-text { font-size: 22px; letter-spacing: 3px; }
       .header-right { gap: 12px; }
       .header-right .icon-btn svg { width: 18px; height: 18px; }
@@ -221,7 +170,6 @@
       .announcement-slide span { font-size: 8px; letter-spacing: 1.4px; }
       .main-header { height: 64px; }
       .main-header .container { padding: 0 16px; grid-template-columns: 1fr auto 1fr; }
-      .header-center .logo img { height: 38px; }
       .header-center .logo .logo-text { font-size: 18px; letter-spacing: 2.5px; }
       .header-right { gap: 10px; padding-left: 8px; }
       .header-right .icon-btn svg { width: 17px; height: 17px; }
@@ -267,21 +215,18 @@
       .header-right { gap: 6px; }
       .header-right .icon-btn svg { width: 15px; height: 15px; }
       .header-center .logo .logo-text { font-size: 15px; letter-spacing: 2px; }
-      .header-center .logo img { height: 32px; }
       :root { --circle-size: 100px; --circle-gap: 12px; }
-      .category-circle { width: var(--circle-size); height: var(--circle-size); }
     }
     @media (min-width: 769px) {
       .category-grid { flex-wrap: nowrap; overflow: visible; }
     }
-    .img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f5ede0; color: #999; font-size: 12px; text-align: center; padding: 8px; }
     .header-right .icon-btn::after, .hamburger-btn::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 100%; height: 3px; background: #c0c0c0; border-radius: 2px; pointer-events: none; z-index: 5; }
     .fast-delivery-slide span { text-decoration: underline; text-decoration-color: #c0c0c0; text-decoration-thickness: 2px; text-underline-offset: 5px; }
   </style>
 </head>
 
 <body>
-  <!-- ===== TOP ANNOUNCEMENT BAR — SLIDER ===== -->
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
   <div class="announcement-bar">
     <div class="container">
       <div class="announcement-slider" id="announcementSlider">
@@ -291,7 +236,7 @@
         <div class="announcement-slide fast-delivery-slide"><span>🚚 Fast Delivery – Dispatched Within 24 Hours</span></div>
         <div class="announcement-slide"><span>🔄 Easy Returns &amp; Exchanges</span></div>
         <div class="announcement-slide"><span>🇮🇳 Get Instant 10% Off on Prepaid Orders Here in Bharat</span></div>
-        <div class="announcement-slide"><span>🇮🇳 TrendOye - Celebration Wear Brand from India</span></div>
+        <div class="announcement-slide"><span>🇮🇳 Silkora - Celebration Wear Brand from India</span></div>
       </div>
     </div>
   </div>
@@ -302,8 +247,7 @@
       <div class="header-left"></div>
       <div class="header-center">
         <div class="logo">
-          <img src="https://trendoye.aamir68599.workers.dev/trendoye%20logo.avif" alt="TrendOye Logo" />
-          <span class="logo-text">Saree<span>.</span></span>
+          <span class="logo-text">Silkora<span>.</span></span>
         </div>
       </div>
       <div class="header-right">
@@ -333,7 +277,7 @@
     </div>
   </header>
 
-  <!-- ===== DESKTOP NAVIGATION ===== -->
+  <!-- ===== DESKTOP NAV ===== -->
   <nav class="nav-menu" id="desktopNav">
     <div class="container">
       <ul>
@@ -347,7 +291,7 @@
     </div>
   </nav>
 
-  <!-- ===== MOBILE NAV (slide-down) ===== -->
+  <!-- ===== MOBILE NAV ===== -->
   <div class="mobile-nav" id="mobileNav">
     <ul>
       <li><a href="#">New Arrivals</a></li>
@@ -363,11 +307,11 @@
   <section class="category-section">
     <div class="container">
       <div class="category-grid">
-        <div class="category-item"><div class="category-circle"><img src="https://trendoye.aamir68599.workers.dev/New%20Arrival%20Sarees%20category%201%20image.avif" alt="New Arrival Sarees" loading="lazy" /></div><div class="category-name">New Arrival Sarees</div></div>
-        <div class="category-item"><div class="category-circle"><img src="https://trendoye.aamir68599.workers.dev/New%20Arrival%20Lehenga-Set%20category%201%20image.webp" alt="New Arrival Lehenga-Set" loading="lazy" /></div><div class="category-name">New Arrival Lehenga-Set</div></div>
-        <div class="category-item"><div class="category-circle"><img src="https://trendoye.aamir68599.workers.dev/Wedding%20Sarees%20category%201%20image.avif" alt="Wedding Sarees" loading="lazy" /></div><div class="category-name">Wedding Sarees</div></div>
-        <div class="category-item"><div class="category-circle"><img src="https://trendoye.aamir68599.workers.dev/Ready-To-Wear%20Sarees%20category.avif" alt="Ready-To-Wear Sarees" loading="lazy" /></div><div class="category-name">Ready-To-Wear Sarees</div></div>
-        <div class="category-item"><div class="category-circle"><img src="https://trendoye.aamir68599.workers.dev/Designer%20Sarees%20category.webp" alt="Designer Sarees" loading="lazy" /></div><div class="category-name">Designer Sarees</div></div>
+        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=New+Arrivals" alt="New Arrival Sarees" loading="lazy" /></div><div class="category-name">New Arrival Sarees</div></div>
+        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Lehenga" alt="New Arrival Lehenga-Set" loading="lazy" /></div><div class="category-name">New Arrival Lehenga-Set</div></div>
+        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Wedding" alt="Wedding Sarees" loading="lazy" /></div><div class="category-name">Wedding Sarees</div></div>
+        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Ready+Wear" alt="Ready-To-Wear Sarees" loading="lazy" /></div><div class="category-name">Ready-To-Wear Sarees</div></div>
+        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Designer" alt="Designer Sarees" loading="lazy" /></div><div class="category-name">Designer Sarees</div></div>
       </div>
     </div>
   </section>
@@ -375,63 +319,98 @@
   <!-- ===== HERO CAROUSEL ===== -->
   <section class="hero-section">
     <div class="hero-carousel" id="heroCarousel">
-      <div class="hero-slide active"><img src="https://trendoye.aamir68599.workers.dev/trendy%201.webp" alt="TrendOye Premium Saree Collection 1" fetchpriority="high" /></div>
-      <div class="hero-slide"><img src="https://trendoye.aamir68599.workers.dev/trendy%202.webp" alt="TrendOye Premium Saree Collection 2" loading="lazy" /></div>
-      <div class="hero-slide"><img src="https://trendoye.aamir68599.workers.dev/trendy%203.webp" alt="TrendOye Premium Saree Collection 3" loading="lazy" /></div>
-      <div class="hero-slide"><img src="https://trendoye.aamir68599.workers.dev/trendy%204.webp" alt="TrendOye Premium Saree Collection 4" loading="lazy" /></div>
-      <div class="hero-slide"><img src="https://trendoye.aamir68599.workers.dev/trendy%205.webp" alt="TrendOye Premium Saree Collection 5" loading="lazy" /></div>
+      <div class="hero-slide active"><img src="https://placehold.co/1400x533/e8b4c4/1a1a1a?text=Silkora+Premium+Collection" alt="Silkora Premium Collection 1" fetchpriority="high" /></div>
+      <div class="hero-slide"><img src="https://placehold.co/1400x533/d4a574/1a1a1a?text=Designer+Sarees" alt="Silkora Premium Collection 2" loading="lazy" /></div>
+      <div class="hero-slide"><img src="https://placehold.co/1400x533/c9a84c/1a1a1a?text=Wedding+Collection" alt="Silkora Premium Collection 3" loading="lazy" /></div>
+      <div class="hero-slide"><img src="https://placehold.co/1400x533/e0c8a0/1a1a1a?text=Festive+Specials" alt="Silkora Premium Collection 4" loading="lazy" /></div>
+      <div class="hero-slide"><img src="https://placehold.co/1400x533/f5ede0/d81b60?text=New+Arrivals" alt="Silkora Premium Collection 5" loading="lazy" /></div>
     </div>
   </section>
 
-  <!-- ===== FEATURED IMAGE SECTION ===== -->
+  <!-- ===== FEATURED IMAGE ===== -->
   <section class="featured-image-section">
-    <img src="https://trendoye.aamir68599.workers.dev/image%20shock%202.avif" alt="Featured Collection" loading="lazy" />
-    <img src="https://trendoye.aamir68599.workers.dev/image%20shock%203.avif" alt="Featured Collection 2" loading="lazy" />
-    <img src="https://trendoye.aamir68599.workers.dev/image%20shock%204.avif" alt="Featured Collection 3" loading="lazy" />
-    <img src="https://trendoye.aamir68599.workers.dev/image%20shock%205.avif" alt="Featured Collection 4" loading="lazy" />
-    <img src="https://trendoye.aamir68599.workers.dev/image%20shock%206.avif" alt="Featured Collection 5" loading="lazy" />
+    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+1" alt="Featured 1" loading="lazy" />
+    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+2" alt="Featured 2" loading="lazy" />
+    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+3" alt="Featured 3" loading="lazy" />
+    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+4" alt="Featured 4" loading="lazy" />
+    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+5" alt="Featured 5" loading="lazy" />
   </section>
 
-  <!-- ===== SHOP BY CATEGORY SECTION ===== -->
+  <!-- ===== SHOP BY CATEGORY ===== -->
   <section class="shop-by-category-section">
     <div class="container">
       <h2 class="section-heading">Shop by Category</h2>
       <div class="shop-category-grid">
-        <a class="shop-category-card" href="#"><img src="https://trendoye.aamir68599.workers.dev/luxurious%20wedding%20sarees.webp" alt="Luxurious Wedding Saree's" loading="lazy" /><div class="shop-category-label">Luxurious Wedding Saree's</div></a>
-        <a class="shop-category-card" href="#"><img src="https://trendoye.aamir68599.workers.dev/dazzling%20designer.webp" alt="Dazzling Designer's" loading="lazy" /><div class="shop-category-label">Dazzling Designer's</div></a>
-        <a class="shop-category-card" href="#"><img src="https://trendoye.aamir68599.workers.dev/ready%20to%20wear%20sarees.webp" alt="Ready To Wear Saree's" loading="lazy" /><div class="shop-category-label">Ready To Wear Saree's</div></a>
-        <a class="shop-category-card" href="#"><img src="https://trendoye.aamir68599.workers.dev/luxurious%20lehenga's.webp" alt="Luxurious Lehenga's" loading="lazy" /><div class="shop-category-label">Luxurious Lehenga's</div></a>
+        <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Wedding+Sarees" alt="Luxurious Wedding Sarees" loading="lazy" /><div class="shop-category-label">Luxurious Wedding Sarees</div></a>
+        <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Designer" alt="Dazzling Designers" loading="lazy" /><div class="shop-category-label">Dazzling Designers</div></a>
+        <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Ready+To+Wear" alt="Ready To Wear Sarees" loading="lazy" /><div class="shop-category-label">Ready To Wear Sarees</div></a>
+        <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Lehengas" alt="Luxurious Lehengas" loading="lazy" /><div class="shop-category-label">Luxurious Lehengas</div></a>
       </div>
     </div>
   </section>
 
-  <!-- ===== NEW ARRIVALS SAREES (Dynamic Section) ===== -->
+  <!-- ===== NEW ARRIVALS (3 STATIC PRODUCTS) ===== -->
   <section class="new-arrivals-section">
     <div class="container">
       <h2 class="section-title">New Arrivals Sarees</h2>
-      
-      <!-- Yahan Firebase se products aayenge -->
+
       <div class="product-grid" id="dynamicProductGrid">
-        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">Loading Products...</div>
+
+        <!-- PRODUCT 1: Midnight Noir -->
+        <a class="product-card" href="midnight-noir-georgette-saree.html">
+          <div class="product-media">
+            <span class="product-badge">New Arrivals</span>
+            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80" alt="Midnight Noir Georgette Saree" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Midnight Noir Georgette Saree with Zari Border</h3>
+            <div class="product-price">₹ 2,499.00 INR</div>
+          </div>
+        </a>
+
+        <!-- PRODUCT 2: Crimson Ruby -->
+        <a class="product-card" href="crimson-ruby-georgette-saree.html">
+          <div class="product-media">
+            <span class="product-badge">New Arrivals</span>
+            <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=600&q=80" alt="Crimson Ruby Georgette Saree" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Crimson Ruby Georgette Saree with Sequin Work</h3>
+            <div class="product-price">₹ 2,899.00 INR</div>
+          </div>
+        </a>
+
+        <!-- PRODUCT 3: Sunlit Gold -->
+        <a class="product-card" href="sunlit-gold-silk-saree.html">
+          <div class="product-media">
+            <span class="product-badge">Premium</span>
+            <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80" alt="Sunlit Gold Silk Saree" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Sunlit Gold Silk Saree with Pearl Embroidery</h3>
+            <div class="product-price">₹ 11,999.00 INR</div>
+          </div>
+        </a>
+
       </div>
 
       <a href="#" class="view-all-btn">VIEW ALL PRODUCTS</a>
     </div>
   </section>
 
-  <!-- ===== SHOP BY COLLECTIONS SECTION ===== -->
+  <!-- ===== SHOP BY COLLECTIONS ===== -->
   <section class="collections-section">
     <div class="container">
       <h2 class="collections-heading">SHOP BY COLLECTIONS</h2>
       <div class="collections-grid">
-        <a href="#" class="collection-card"><img src="https://trendoye.aamir68599.workers.dev/Gorgcous%20banarasi%20image.webp" alt="Gorgeous Banarasi's" loading="lazy" /><div class="collection-label">Gorgeous Banarasi's</div></a>
-        <a href="#" class="collection-card"><img src="https://trendoye.aamir68599.workers.dev/vibrant%20patola's%20image.webp" alt="Vibrant Patola's" loading="lazy" /><div class="collection-label">Vibrant Patola's</div></a>
-        <a href="#" class="collection-card"><img src="https://trendoye.aamir68599.workers.dev/Kanjivaram%20image.webp" alt="Kanjivaram's" loading="lazy" /><div class="collection-label">Kanjivaram's</div></a>
-        <a href="#" class="collection-card"><img src="https://trendoye.aamir68599.workers.dev/royal%20paithani's.webp" alt="Royal Paithani's" loading="lazy" /><div class="collection-label">Royal Paithani's</div></a>
-        <a href="#" class="collection-card"><img src="https://trendoye.aamir68599.workers.dev/weightless%20georgette's.webp" alt="Weightless Georgette's" loading="lazy" /><div class="collection-label">Weightless Georgette's</div></a>
-        <a href="#" class="collection-card"><img src="https://trendoye.aamir68599.workers.dev/slay%20in%20satin's.webp" alt="Slay in Satin's" loading="lazy" /><div class="collection-label">Slay in Satin's</div></a>
-        <a href="#" class="collection-card"><img src="https://trendoye.aamir68599.workers.dev/opulent%20organza's.webp" alt="Opulent Organza's" loading="lazy" /><div class="collection-label">Opulent Organza's</div></a>
-        <a href="#" class="collection-card"><img src="https://trendoye.aamir68599.workers.dev/all%20silk's.webp" alt="All Silk's" loading="lazy" /><div class="collection-label">All Silk's</div></a>
+        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Banarasi" alt="Gorgeous Banarasi" loading="lazy" /><div class="collection-label">Gorgeous Banarasi's</div></a>
+        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Patola" alt="Vibrant Patola" loading="lazy" /><div class="collection-label">Vibrant Patola's</div></a>
+        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Kanjivaram" alt="Kanjivaram" loading="lazy" /><div class="collection-label">Kanjivaram's</div></a>
+        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Paithani" alt="Royal Paithani" loading="lazy" /><div class="collection-label">Royal Paithani's</div></a>
+        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Georgette" alt="Weightless Georgette" loading="lazy" /><div class="collection-label">Weightless Georgette's</div></a>
+        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Satin" alt="Slay in Satin" loading="lazy" /><div class="collection-label">Slay in Satin's</div></a>
+        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Organza" alt="Opulent Organza" loading="lazy" /><div class="collection-label">Opulent Organza's</div></a>
+        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Silk" alt="All Silk" loading="lazy" /><div class="collection-label">All Silk's</div></a>
       </div>
     </div>
   </section>
@@ -443,14 +422,14 @@
         <div class="footer-col">
           <h3>Connect With Us</h3>
           <h4>Customer Support:</h4>
-          <p>Voice & WhatsApp: +91-8169352474</p>
-          <p>E-mail: support@TrendOye.com</p>
+          <p>Voice &amp; WhatsApp: +91-9876543210</p>
+          <p>E-mail: support@Silkora.com</p>
           <h4 style="margin-top: 20px;">Working Days/Hours:</h4>
           <p>Monday - Saturday (11:00 AM - 7:00 PM)</p>
         </div>
         <div class="footer-col">
-          <h3>SIGN UP & ENJOY EXTRA SAVINGS</h3>
-          <p>Join TrendOye Family Now & Avail Exclusive Offers, Store-Credits & Giveaways</p>
+          <h3>SIGN UP &amp; ENJOY EXTRA SAVINGS</h3>
+          <p>Join Silkora Family Now &amp; Avail Exclusive Offers, Store-Credits &amp; Giveaways</p>
           <form class="newsletter-form" onsubmit="event.preventDefault();">
             <input type="email" placeholder="E-mail" required />
             <button type="submit">SUBSCRIBE</button>
@@ -463,10 +442,10 @@
             <li><a href="#">ABOUT US</a></li>
             <li><a href="#">FAQ'S</a></li>
             <li><a href="#">EXCHANGE/RETURNS POLICY</a></li>
-            <li><a href="#">SHIPPING & DELIVERY POLICY</a></li>
+            <li><a href="#">SHIPPING &amp; DELIVERY POLICY</a></li>
             <li><a href="#">PAYMENT POLICY</a></li>
-            <li><a href="#">OFFERS & PROMOTION POLICY</a></li>
-            <li><a href="#">TERMS & CONDITIONS</a></li>
+            <li><a href="#">OFFERS &amp; PROMOTION POLICY</a></li>
+            <li><a href="#">TERMS &amp; CONDITIONS</a></li>
             <li><a href="#">WHOLESALE ENQUIRIES</a></li>
             <li><a href="#">PRIVACY POLICY</a></li>
             <li><a href="#">BLOGS</a></li>
@@ -478,21 +457,12 @@
       <div class="footer-bottom">
         <h3>Popular Searches</h3>
         <div class="footer-tags">
-          <a href="#">Wedding Sarees</a>
-          <a href="#">Party Saree</a>
-          <a href="#">Banarasi Sarees</a>
-          <a href="#">Kanjivaram Sarees</a>
-          <a href="#">Designer Sarees</a>
-          <a href="#">Ready To Wear Sarees</a>
-          <a href="#">Silk Sarees</a>
-          <a href="#">Satin Sarees</a>
-          <a href="#">Tissue Sarees</a>
-          <a href="#">Bridal Sarees</a>
-          <a href="#">Red Sarees</a>
-          <a href="#">Pink Sarees</a>
-          <a href="#">Black Sarees</a>
+          <a href="#">Wedding Sarees</a><a href="#">Party Saree</a><a href="#">Banarasi Sarees</a>
+          <a href="#">Kanjivaram Sarees</a><a href="#">Designer Sarees</a><a href="#">Ready To Wear Sarees</a>
+          <a href="#">Silk Sarees</a><a href="#">Satin Sarees</a><a href="#">Tissue Sarees</a>
+          <a href="#">Bridal Sarees</a><a href="#">Red Sarees</a><a href="#">Pink Sarees</a><a href="#">Black Sarees</a>
         </div>
-        <h3>Explore Usefull Knowledge</h3>
+        <h3>Explore Useful Knowledge</h3>
         <div class="footer-tags">
           <a href="#">How To Choose Perfect Banarasi Saree?</a>
           <a href="#">Types Of Sarees To Wear For Wedding</a>
@@ -508,7 +478,7 @@
             <a href="#" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
           </div>
           <div class="footer-payment">
-            <img src="https://trendoye.aamir68599.workers.dev/payment.webp" alt="Payment Methods" />
+            <img src="https://placehold.co/300x30/ffffff/333?text=Payment+Methods" alt="Payment Methods" />
           </div>
           <div class="footer-selectors">
             <span>🇮🇳 India (INR ₹)</span>
@@ -516,115 +486,32 @@
           </div>
         </div>
         <div class="footer-copyright">
-          © 2026 - TrendOye Powered by Shopify
+          © 2026 - Silkora. All Rights Reserved.
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Firebase SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
-    // 🔴 FIREBASE CONFIG 🔴
-    const firebaseConfig = {
-      apiKey: "AIzaSyCsfvBRh7l_LMQDFKNN2YZnun55WkwrJ7E",
-      authDomain: "trendoye-app.firebaseapp.com",
-      projectId: "trendoye-app",
-      storageBucket: "trendoye-app.firebasestorage.app",
-      messagingSenderId: "369147044565",
-      appId: "1:369147044565:web:2ac1357c4dc5776d60385c",
-      measurementId: "G-8CWTGDYFN7"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const productGrid = document.getElementById('dynamicProductGrid');
-
-    // 🔴 FRONTEND REAL-TIME LISTENER 🔴
-    function loadLiveProducts() {
-      const q = collection(db, "products");
-      
-      onSnapshot(q, (snapshot) => {
-        productGrid.innerHTML = ''; // Clear loading state
-        
-        let activeProducts = [];
-        snapshot.forEach((doc) => {
-          const p = doc.data();
-          if (p.status === 'active') {
-            activeProducts.push({ id: doc.id, ...p });
-          }
-        });
-
-        if (activeProducts.length === 0) {
-          productGrid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">No products available right now.</div>';
-          return;
-        }
-
-        // Latest products sabse pehle dikhane ke liye reverse kiya
-        activeProducts.reverse();
-
-        // Sirf pehle 6 products dikhayein
-        activeProducts.slice(0, 6).forEach(p => {
-          const card = document.createElement('a');
-          card.className = 'product-card';
-          card.href = '#'; // Product detail page link
-          
-          card.innerHTML = `
-            <div class="product-media">
-              <span class="product-badge">${p.badge || 'New Arrivals'}</span>
-              <img
-                src="${p.image || 'https://via.placeholder.com/400x500'}"
-                alt="${p.name}"
-                loading="lazy"
-                onerror="this.onerror=null;this.src='https://via.placeholder.com/400x500';"
-              />
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">${p.name}</h3>
-              <div class="product-price">₹ ${Number(p.price).toLocaleString('en-IN')}.00 INR</div>
-            </div>
-          `;
-          productGrid.appendChild(card);
-        });
-      }, (error) => {
-        console.error("Error fetching products: ", error);
-        productGrid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: red;">Error loading products.</div>';
-      });
-    }
-
-    // Load products on page load
-    loadLiveProducts();
-  </script>
-
-  <!-- UI Scripts (Header, Carousel, etc.) -->
+  <!-- ===== UI SCRIPTS ===== -->
   <script>
     (function() {
       'use strict';
-
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mobileNav = document.getElementById('mobileNav');
-
       if (hamburgerBtn && mobileNav) {
         hamburgerBtn.addEventListener('click', function(e) {
           e.stopPropagation();
           mobileNav.classList.toggle('open');
-          const expanded = mobileNav.classList.contains('open');
-          hamburgerBtn.setAttribute('aria-expanded', expanded);
+          hamburgerBtn.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
         });
-
         document.addEventListener('click', function(e) {
           if (mobileNav.classList.contains('open')) {
-            const isClickInside = mobileNav.contains(e.target) || hamburgerBtn.contains(e.target);
-            if (!isClickInside) {
+            if (!mobileNav.contains(e.target) && !hamburgerBtn.contains(e.target)) {
               mobileNav.classList.remove('open');
               hamburgerBtn.setAttribute('aria-expanded', 'false');
             }
           }
         });
-
         document.addEventListener('keydown', function(e) {
           if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
             mobileNav.classList.remove('open');
@@ -633,19 +520,6 @@
           }
         });
       }
-
-      const logoImg = document.querySelector('.header-center .logo img');
-      const logoText = document.querySelector('.header-center .logo .logo-text');
-      if (logoImg && logoText) {
-        logoImg.addEventListener('error', function() {
-          this.style.display = 'none';
-          logoText.style.display = 'block';
-        });
-        logoImg.addEventListener('load', function() {
-          logoText.style.display = 'none';
-        });
-      }
-
       const announcementSlider = document.getElementById('announcementSlider');
       if (announcementSlider) {
         const annSlides = announcementSlider.querySelectorAll('.announcement-slide');
@@ -655,16 +529,12 @@
             const prev = annSlides[annCurrent];
             prev.classList.remove('active');
             prev.classList.add('leaving');
-            setTimeout(function() {
-              prev.classList.remove('leaving');
-            }, 600);
-
+            setTimeout(function() { prev.classList.remove('leaving'); }, 600);
             annCurrent = (annCurrent + 1) % annSlides.length;
             annSlides[annCurrent].classList.add('active');
           }, 5000);
         }
       }
-
       const heroCarousel = document.getElementById('heroCarousel');
       if (heroCarousel) {
         const slides = heroCarousel.querySelectorAll('.hero-slide');
@@ -674,48 +544,10 @@
             slides[current].classList.remove('active');
             current = (current + 1) % slides.length;
             slides[current].classList.add('active');
-          }, 3000);
+          }, 4000);
         }
       }
-
-      document.querySelectorAll('.category-circle img').forEach(img => {
-        img.addEventListener('error', function() {
-          const parent = this.parentElement;
-          const placeholder = document.createElement('div');
-          placeholder.className = 'img-placeholder';
-          placeholder.textContent = this.alt || 'Saree';
-          parent.innerHTML = '';
-          parent.appendChild(placeholder);
-        });
-      });
-
-      document.querySelectorAll('.shop-category-card img').forEach(img => {
-        img.addEventListener('error', function() {
-          const parent = this.parentElement;
-          const label = parent.querySelector('.shop-category-label');
-          const labelText = label ? label.textContent : 'Category';
-          const placeholder = document.createElement('div');
-          placeholder.className = 'img-placeholder';
-          placeholder.textContent = labelText;
-          this.style.display = 'none';
-          parent.insertBefore(placeholder, parent.firstChild);
-        });
-      });
-
-      document.querySelectorAll('.collection-card img').forEach(img => {
-        img.addEventListener('error', function() {
-          const parent = this.parentElement;
-          const label = parent.querySelector('.collection-label');
-          const labelText = label ? label.textContent : 'Collection';
-          const placeholder = document.createElement('div');
-          placeholder.className = 'img-placeholder';
-          placeholder.textContent = labelText;
-          this.style.display = 'none';
-          parent.insertBefore(placeholder, parent.firstChild);
-        });
-      });
-
-      console.log('✨ Premium Saree Header & Category ready.');
+      console.log('✨ Silkora Homepage ready.');
     })();
   </script>
 </body>
