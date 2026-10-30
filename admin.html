@@ -189,6 +189,17 @@ import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from
 import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 import { getStorage, ref as sRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-storage.js";
 
+/* ══════════════════════════════════════════════════════════════
+   🔐 ADMIN CONFIG — YAHAN APNA ADMIN EMAIL DAALO
+   ══════════════════════════════════════════════════════════════
+   Firebase Console → Authentication → Users → Add user se
+   jo email banao, wahi email yahan likho. Sirf yahi email
+   admin panel khol payega. Baaki users auto sign-out ho jayenge.
+*/
+const ADMIN_EMAILS = [
+  'admin@silkora.com',   // 👈 apna email yahan likho
+];
+
 const firebaseConfig = {
   apiKey: "AIzaSyCsfvBRh7l_LMQDFKNN2YZnun55WkwrJ7E",
   authDomain: "trendoye-app.firebaseapp.com",
@@ -206,6 +217,10 @@ const storage = getStorage(app);
 const state = { user: null, currentView: 'dashboard', products: [], categories: [], collections: [], banners: [], unsubscribers: {} };
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
+
+function isAdmin(user) {
+  return !!user && !!user.email && ADMIN_EMAILS.includes(user.email.toLowerCase());
+}
 
 function toast(msg, type = 'success') {
   const t = $('#toast');
@@ -255,8 +270,22 @@ $('#loginForm').addEventListener('submit', async (e) => {
 });
 $('#logoutBtn').addEventListener('click', async () => { if (await confirmDelete('Logout from admin?')) await signOut(auth); });
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
+function stopListeners() {
+  Object.values(state.unsubscribers).forEach(fn => fn && fn());
+  state.unsubscribers = {};
+}
+
+onAuthStateChanged(auth, async (user) => {
+  // 🔐 ADMIN GUARD: agar logged-in user allowed list mein nahi hai → turant sign-out
+  if (user && !isAdmin(user)) {
+    stopListeners();
+    await signOut(auth);
+    $('#loginScreen').style.display = 'flex';
+    $('#adminPanel').style.display = 'none';
+    $('#loginError').textContent = 'Access denied: not an admin account.';
+    return;
+  }
+  if (user && isAdmin(user)) {
     state.user = user;
     $('#loginScreen').style.display = 'none';
     $('#adminPanel').style.display = 'block';
@@ -267,12 +296,12 @@ onAuthStateChanged(auth, (user) => {
     state.user = null;
     $('#loginScreen').style.display = 'flex';
     $('#adminPanel').style.display = 'none';
-    Object.values(state.unsubscribers).forEach(fn => fn && fn());
-    state.unsubscribers = {};
+    stopListeners();
   }
 });
 
 function startListeners() {
+  stopListeners();
   state.unsubscribers.products = onSnapshot(query(collection(db, 'products'), orderBy('createdAt', 'desc')), snap => {
     state.products = snap.docs.map(d => ({ id: d.id, ...d.data() }));
     if (state.currentView === 'dashboard') renderDashboard();
