@@ -303,117 +303,97 @@
     </ul>
   </div>
 
-  <!-- ===== CATEGORY SECTION ===== -->
-  <section class="category-section">
+  <!-- ========================================== -->
+  <!-- MAIN HOMEPAGE CONTENT (Products Grid)      -->
+  <!-- ========================================== -->
+  <div id="homepageContent">
+    <!-- ===== CATEGORY SECTION ===== -->
+    <section class="category-section">
+      <div class="container">
+        <div class="category-grid">
+          <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=New+Arrivals" alt="New Arrival Sarees" loading="lazy" /></div><div class="category-name">New Arrival Sarees</div></div>
+          <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Lehenga" alt="New Arrival Lehenga-Set" loading="lazy" /></div><div class="category-name">New Arrival Lehenga-Set</div></div>
+          <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Wedding" alt="Wedding Sarees" loading="lazy" /></div><div class="category-name">Wedding Sarees</div></div>
+          <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Ready+Wear" alt="Ready-To-Wear Sarees" loading="lazy" /></div><div class="category-name">Ready-To-Wear Sarees</div></div>
+          <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Designer" alt="Designer Sarees" loading="lazy" /></div><div class="category-name">Designer Sarees</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HERO CAROUSEL ===== -->
+    <section class="hero-section">
+      <div class="hero-carousel" id="heroCarousel">
+        <div class="hero-slide active"><img src="https://placehold.co/1400x533/e8b4c4/1a1a1a?text=Silkora+Premium+Collection" alt="Silkora Premium Collection 1" fetchpriority="high" /></div>
+        <div class="hero-slide"><img src="https://placehold.co/1400x533/d4a574/1a1a1a?text=Designer+Sarees" alt="Silkora Premium Collection 2" loading="lazy" /></div>
+        <div class="hero-slide"><img src="https://placehold.co/1400x533/c9a84c/1a1a1a?text=Wedding+Collection" alt="Silkora Premium Collection 3" loading="lazy" /></div>
+        <div class="hero-slide"><img src="https://placehold.co/1400x533/e0c8a0/1a1a1a?text=Festive+Specials" alt="Silkora Premium Collection 4" loading="lazy" /></div>
+        <div class="hero-slide"><img src="https://placehold.co/1400x533/f5ede0/d81b60?text=New+Arrivals" alt="Silkora Premium Collection 5" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED IMAGE ===== -->
+    <section class="featured-image-section">
+      <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+1" alt="Featured 1" loading="lazy" />
+      <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+2" alt="Featured 2" loading="lazy" />
+      <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+3" alt="Featured 3" loading="lazy" />
+      <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+4" alt="Featured 4" loading="lazy" />
+      <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+5" alt="Featured 5" loading="lazy" />
+    </section>
+
+    <!-- ===== SHOP BY CATEGORY ===== -->
+    <section class="shop-by-category-section">
+      <div class="container">
+        <h2 class="section-heading">Shop by Category</h2>
+        <div class="shop-category-grid">
+          <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Wedding+Sarees" alt="Luxurious Wedding Sarees" loading="lazy" /><div class="shop-category-label">Luxurious Wedding Sarees</div></a>
+          <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Designer" alt="Dazzling Designers" loading="lazy" /><div class="shop-category-label">Dazzling Designers</div></a>
+          <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Ready+To+Wear" alt="Ready To Wear Sarees" loading="lazy" /><div class="shop-category-label">Ready To Wear Sarees</div></a>
+          <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Lehengas" alt="Luxurious Lehengas" loading="lazy" /><div class="shop-category-label">Luxurious Lehengas</div></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEW ARRIVALS (DYNAMIC PRODUCTS) ===== -->
+    <section class="new-arrivals-section">
+      <div class="container">
+        <h2 class="section-title">New Arrivals Sarees</h2>
+        <div class="product-grid" id="dynamicProductGrid">
+          <!-- Firebase se products yahan aayenge -->
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #888;">Loading products...</div>
+        </div>
+        <a href="#" class="view-all-btn">VIEW ALL PRODUCTS</a>
+      </div>
+    </section>
+
+    <!-- ===== SHOP BY COLLECTIONS ===== -->
+    <section class="collections-section">
+      <div class="container">
+        <h2 class="collections-heading">SHOP BY COLLECTIONS</h2>
+        <div class="collections-grid">
+          <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Banarasi" alt="Gorgeous Banarasi" loading="lazy" /><div class="collection-label">Gorgeous Banarasi's</div></a>
+          <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Patola" alt="Vibrant Patola" loading="lazy" /><div class="collection-label">Vibrant Patola's</div></a>
+          <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Kanjivaram" alt="Kanjivaram" loading="lazy" /><div class="collection-label">Kanjivaram's</div></a>
+          <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Paithani" alt="Royal Paithani" loading="lazy" /><div class="collection-label">Royal Paithani's</div></a>
+          <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Georgette" alt="Weightless Georgette" loading="lazy" /><div class="collection-label">Weightless Georgette's</div></a>
+          <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Satin" alt="Slay in Satin" loading="lazy" /><div class="collection-label">Slay in Satin's</div></a>
+          <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Organza" alt="Opulent Organza" loading="lazy" /><div class="collection-label">Opulent Organza's</div></a>
+          <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Silk" alt="All Silk" loading="lazy" /><div class="collection-label">All Silk's</div></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- SINGLE PRODUCT DETAIL (WordPress Style)    -->
+  <!-- ========================================== -->
+  <div id="productDetailContent" style="display: none; padding: 60px 0; background: #fff;">
     <div class="container">
-      <div class="category-grid">
-        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=New+Arrivals" alt="New Arrival Sarees" loading="lazy" /></div><div class="category-name">New Arrival Sarees</div></div>
-        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Lehenga" alt="New Arrival Lehenga-Set" loading="lazy" /></div><div class="category-name">New Arrival Lehenga-Set</div></div>
-        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Wedding" alt="Wedding Sarees" loading="lazy" /></div><div class="category-name">Wedding Sarees</div></div>
-        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Ready+Wear" alt="Ready-To-Wear Sarees" loading="lazy" /></div><div class="category-name">Ready-To-Wear Sarees</div></div>
-        <div class="category-item"><div class="category-circle"><img src="https://placehold.co/180x180/f5ede0/c9a84c?text=Designer" alt="Designer Sarees" loading="lazy" /></div><div class="category-name">Designer Sarees</div></div>
+      <a href="./" style="display: inline-block; margin-bottom: 20px; color: var(--primary-pink); font-weight: 600;">← Back to Store</a>
+      <div id="productDetailInner" style="display: flex; gap: 40px; flex-wrap: wrap;">
+        <!-- Detail content will be injected by JS -->
       </div>
     </div>
-  </section>
-
-  <!-- ===== HERO CAROUSEL ===== -->
-  <section class="hero-section">
-    <div class="hero-carousel" id="heroCarousel">
-      <div class="hero-slide active"><img src="https://placehold.co/1400x533/e8b4c4/1a1a1a?text=Silkora+Premium+Collection" alt="Silkora Premium Collection 1" fetchpriority="high" /></div>
-      <div class="hero-slide"><img src="https://placehold.co/1400x533/d4a574/1a1a1a?text=Designer+Sarees" alt="Silkora Premium Collection 2" loading="lazy" /></div>
-      <div class="hero-slide"><img src="https://placehold.co/1400x533/c9a84c/1a1a1a?text=Wedding+Collection" alt="Silkora Premium Collection 3" loading="lazy" /></div>
-      <div class="hero-slide"><img src="https://placehold.co/1400x533/e0c8a0/1a1a1a?text=Festive+Specials" alt="Silkora Premium Collection 4" loading="lazy" /></div>
-      <div class="hero-slide"><img src="https://placehold.co/1400x533/f5ede0/d81b60?text=New+Arrivals" alt="Silkora Premium Collection 5" loading="lazy" /></div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURED IMAGE ===== -->
-  <section class="featured-image-section">
-    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+1" alt="Featured 1" loading="lazy" />
-    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+2" alt="Featured 2" loading="lazy" />
-    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+3" alt="Featured 3" loading="lazy" />
-    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+4" alt="Featured 4" loading="lazy" />
-    <img src="https://placehold.co/240x252/f5ede0/c9a84c?text=Featured+5" alt="Featured 5" loading="lazy" />
-  </section>
-
-  <!-- ===== SHOP BY CATEGORY ===== -->
-  <section class="shop-by-category-section">
-    <div class="container">
-      <h2 class="section-heading">Shop by Category</h2>
-      <div class="shop-category-grid">
-        <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Wedding+Sarees" alt="Luxurious Wedding Sarees" loading="lazy" /><div class="shop-category-label">Luxurious Wedding Sarees</div></a>
-        <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Designer" alt="Dazzling Designers" loading="lazy" /><div class="shop-category-label">Dazzling Designers</div></a>
-        <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Ready+To+Wear" alt="Ready To Wear Sarees" loading="lazy" /><div class="shop-category-label">Ready To Wear Sarees</div></a>
-        <a class="shop-category-card" href="#"><img src="https://placehold.co/400x533/f5ede0/333?text=Lehengas" alt="Luxurious Lehengas" loading="lazy" /><div class="shop-category-label">Luxurious Lehengas</div></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== NEW ARRIVALS (3 STATIC PRODUCTS) ===== -->
-  <section class="new-arrivals-section">
-    <div class="container">
-      <h2 class="section-title">New Arrivals Sarees</h2>
-
-      <div class="product-grid" id="dynamicProductGrid">
-
-        <!-- PRODUCT 1: Midnight Noir -->
-        <a class="product-card" href="midnight-noir-georgette-saree.html">
-          <div class="product-media">
-            <span class="product-badge">New Arrivals</span>
-            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80" alt="Midnight Noir Georgette Saree" loading="lazy" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Midnight Noir Georgette Saree with Zari Border</h3>
-            <div class="product-price">₹ 2,499.00 INR</div>
-          </div>
-        </a>
-
-        <!-- PRODUCT 2: Crimson Ruby -->
-        <a class="product-card" href="crimson-ruby-georgette-saree.html">
-          <div class="product-media">
-            <span class="product-badge">New Arrivals</span>
-            <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=600&q=80" alt="Crimson Ruby Georgette Saree" loading="lazy" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Crimson Ruby Georgette Saree with Sequin Work</h3>
-            <div class="product-price">₹ 2,899.00 INR</div>
-          </div>
-        </a>
-
-        <!-- PRODUCT 3: Sunlit Gold -->
-        <a class="product-card" href="sunlit-gold-silk-saree.html">
-          <div class="product-media">
-            <span class="product-badge">Premium</span>
-            <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80" alt="Sunlit Gold Silk Saree" loading="lazy" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Sunlit Gold Silk Saree with Pearl Embroidery</h3>
-            <div class="product-price">₹ 11,999.00 INR</div>
-          </div>
-        </a>
-
-      </div>
-
-      <a href="#" class="view-all-btn">VIEW ALL PRODUCTS</a>
-    </div>
-  </section>
-
-  <!-- ===== SHOP BY COLLECTIONS ===== -->
-  <section class="collections-section">
-    <div class="container">
-      <h2 class="collections-heading">SHOP BY COLLECTIONS</h2>
-      <div class="collections-grid">
-        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Banarasi" alt="Gorgeous Banarasi" loading="lazy" /><div class="collection-label">Gorgeous Banarasi's</div></a>
-        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Patola" alt="Vibrant Patola" loading="lazy" /><div class="collection-label">Vibrant Patola's</div></a>
-        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Kanjivaram" alt="Kanjivaram" loading="lazy" /><div class="collection-label">Kanjivaram's</div></a>
-        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Paithani" alt="Royal Paithani" loading="lazy" /><div class="collection-label">Royal Paithani's</div></a>
-        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Georgette" alt="Weightless Georgette" loading="lazy" /><div class="collection-label">Weightless Georgette's</div></a>
-        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Satin" alt="Slay in Satin" loading="lazy" /><div class="collection-label">Slay in Satin's</div></a>
-        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Organza" alt="Opulent Organza" loading="lazy" /><div class="collection-label">Opulent Organza's</div></a>
-        <a href="#" class="collection-card"><img src="https://placehold.co/400x533/f5ede0/333?text=Silk" alt="All Silk" loading="lazy" /><div class="collection-label">All Silk's</div></a>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- ===== FOOTER ===== -->
   <footer class="trendoye-footer">
@@ -492,8 +472,26 @@
     </div>
   </footer>
 
-  <!-- ===== UI SCRIPTS ===== -->
-  <script>
+  <!-- ===== SCRIPTS (UI + Firebase) ===== -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, where, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+    // NAYA FIREBASE CONFIG
+    const firebaseConfig = {
+      apiKey: "AIzaSyCNqkO0dMZPAYFYhOIriI43OHYleYq_Bi4",
+      authDomain: "silkora-1e012.firebaseapp.com",
+      projectId: "silkora-1e012",
+      storageBucket: "silkora-1e012.firebasestorage.app",
+      messagingSenderId: "762081890287",
+      appId: "1:762081890287:web:fa6b3291f2db05ad6c301a",
+      measurementId: "G-1B3SCN4CZW"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // --- UI SCRIPTS (Announcement, Hero, Hamburger) ---
     (function() {
       'use strict';
       const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -547,8 +545,106 @@
           }, 4000);
         }
       }
-      console.log('✨ Silkora Homepage ready.');
     })();
+
+    // --- FIREBASE DYNAMIC ROUTING & PRODUCTS FETCH ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const slugParam = urlParams.get('slug');
+    
+    const homepageContent = document.getElementById('homepageContent');
+    const productDetailContent = document.getElementById('productDetailContent');
+    const dynamicProductGrid = document.getElementById('dynamicProductGrid');
+    const productDetailInner = document.getElementById('productDetailInner');
+
+    async function loadHomepage() {
+      try {
+        const q = query(collection(db, "products"), where("status", "==", "active"));
+        const snapshot = await getDocs(q);
+        
+        if (snapshot.empty) {
+          dynamicProductGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #888;">Abhi koi product add nahi hua hai.</div>';
+          return;
+        }
+
+        dynamicProductGrid.innerHTML = ''; // Clear loading
+        let count = 0;
+
+        snapshot.forEach(docSnap => {
+          if(count >= 3) return; // Sirf 3 products dikhayenge homepage par
+          const p = docSnap.data();
+          
+          const card = document.createElement('a');
+          card.className = 'product-card';
+          // WordPress jaisa URL routing link
+          card.href = `?slug=${encodeURIComponent(p.slug)}`; 
+          
+          card.innerHTML = `
+            <div class="product-media">
+              ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+              <img src="${p.image || 'https://placehold.co/600x800/f5ede0/333?text=No+Image'}" alt="${p.name}" loading="lazy" />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">${p.name}</h3>
+              <div class="product-price">₹ ${Number(p.price).toLocaleString('en-IN')} INR</div>
+            </div>
+          `;
+          dynamicProductGrid.appendChild(card);
+          count++;
+        });
+      } catch(e) {
+        console.error(e);
+        dynamicProductGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: red;">Error loading products. Check Firebase rules.</div>';
+      }
+    }
+
+    async function loadSingleProduct(slug) {
+      homepageContent.style.display = 'none'; // Hide homepage content
+      productDetailContent.style.display = 'block'; // Show detail section
+      productDetailInner.innerHTML = '<p>Loading product details...</p>';
+
+      try {
+        const q = query(collection(db, "products"), where("slug", "==", slug));
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+          productDetailInner.innerHTML = '<p>Product not found! <a href="./" style="color:var(--primary-pink)">Go back to home</a></p>';
+          return;
+        }
+
+        const p = snapshot.docs[0].data();
+        
+        // Displaying product details dynamically
+        productDetailInner.innerHTML = `
+          <div style="flex: 1; min-width: 300px;">
+            <img src="${p.image || 'https://placehold.co/600x800/f5ede0/333?text=No+Image'}" alt="${p.name}" style="width: 100%; border-radius: 8px; object-fit: cover;" />
+          </div>
+          <div style="flex: 1; min-width: 300px; padding-top: 20px;">
+            <h1 style="font-size: 32px; font-weight: 500; margin-bottom: 10px;">${p.name}</h1>
+            <p style="color: #666; margin-bottom: 20px; font-size: 14px;">SKU: ${p.sku || 'N/A'}</p>
+            <div style="font-size: 24px; font-weight: bold; color: var(--primary-pink); margin-bottom: 10px;">
+              ₹ ${Number(p.price).toLocaleString('en-IN')} 
+              ${p.originalPrice ? `<span style="font-size: 16px; color: #999; text-decoration: line-through; margin-left: 10px;">₹ ${Number(p.originalPrice).toLocaleString('en-IN')}</span>` : ''}
+            </div>
+            <p style="margin-bottom: 20px; font-weight: 600; color: ${p.stock > 0 ? 'green' : 'red'};">
+              ${p.stock > 0 ? 'In Stock ('+p.stock+')' : 'Out of Stock'}
+            </p>
+            <p style="line-height: 1.6; color: #444; margin-bottom: 30px; font-size: 15px;">
+              ${p.description || 'No description available for this product.'}
+            </p>
+            <button style="background: var(--primary-pink); color: white; border: none; padding: 15px 30px; font-size: 16px; font-weight: 600; border-radius: 4px; cursor: pointer;">ADD TO BAG</button>
+          </div>
+        `;
+      } catch(e) {
+        productDetailInner.innerHTML = '<p>Error fetching product.</p>';
+      }
+    }
+
+    // Routing logic
+    if (slugParam) {
+      loadSingleProduct(slugParam);
+    } else {
+      loadHomepage();
+    }
   </script>
 </body>
 </html>
