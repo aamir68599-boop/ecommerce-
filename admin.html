@@ -265,7 +265,6 @@ async function getUniqueSlug(baseSlug, existingId = null) {
   while (true) {
     const q = query(collection(db, "products"), where("slug", "==", slug));
     const snapshot = await getDocs(q);
-    // Agar koi document mila aur wo same product nahi hai (edit case), toh counter badhao
     const docs = snapshot.docs.filter(d => d.id !== existingId);
     if (docs.length === 0) return slug;
     counter++;
@@ -419,6 +418,7 @@ function renderProducts() {
     }
   });
 }
+
 function openProductForm(existing = null) {
   const isEdit = !!existing;
   const catOptions = state.categories.map(c => `<option value="${escapeHtml(c.name)}" ${existing?.category === c.name ? 'selected' : ''}>${escapeHtml(c.name)}</option>`).join('');
@@ -438,10 +438,23 @@ function openProductForm(existing = null) {
         <div class="form-group"><label>Badge</label><input type="text" id="p_badge" placeholder="e.g. New Arrivals" value="${escapeHtml(existing?.badge || '')}"></div>
       </div>
       <div class="form-group"><label>Description</label><textarea id="p_description">${escapeHtml(existing?.description || '')}</textarea></div>
-      <div class="form-group"><label>Main Image ${isEdit ? '(leave to keep current)' : '*'}</label>
-        <div class="upload-zone"><input type="file" id="p_image" accept="image/*"><div class="upload-text"><strong>Click to upload</strong></div></div>
-        <div class="img-preview" id="p_preview">${existing?.image ? `<div class="img-item"><img src="${escapeHtml(existing.image)}" alt=""></div>` : ''}</div>
+      
+      <!-- CUSTOM IMAGE UPLOAD SECTION -->
+      <div class="form-group">
+        <label>Main Image ${isEdit ? '(leave to keep current)' : '*'}</label>
+        <div class="upload-zone" style="margin-bottom: 10px;">
+            <input type="file" id="p_image" accept="image/*">
+            <div class="upload-text"><strong>Click to upload file</strong></div>
+        </div>
+        <div style="text-align: center; font-size: 12px; color: #888; margin-bottom: 10px;">— YA PHIR IMAGE URL PASTE KAREIN —</div>
+        <input type="url" id="p_image_url" placeholder="https://example.com/image.jpg" value="${existing?.image || ''}" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; font-family: inherit;">
+        
+        <div class="img-preview" id="p_preview">
+          ${existing?.image ? `<div class="img-item"><img src="${escapeHtml(existing.image)}" alt=""></div>` : ''}
+        </div>
       </div>
+      <!-- END CUSTOM IMAGE UPLOAD SECTION -->
+
       <div class="form-group"><label>Gallery Images</label>
         <div class="upload-zone"><input type="file" id="p_gallery" accept="image/*" multiple><div class="upload-text"><strong>Click to upload</strong> multiple</div></div>
         <div class="img-preview" id="p_galleryPreview">${(existing?.images || []).map(u => `<div class="img-item"><img src="${escapeHtml(u)}" alt=""></div>`).join('')}</div>
@@ -452,7 +465,27 @@ function openProductForm(existing = null) {
         <button type="submit" class="btn btn-primary" id="p_submit">${isEdit ? 'Update' : 'Create'}</button>
       </div>
     </form>`);
-  $('#p_image').onchange = e => { const f = e.target.files[0]; if (f) $('#p_preview').innerHTML = `<div class="img-item"><img src="${URL.createObjectURL(f)}"></div>`; };
+  
+  // Image upload preview
+  $('#p_image').onchange = e => { 
+    const f = e.target.files[0]; 
+    if (f) {
+        $('#p_preview').innerHTML = `<div class="img-item"><img src="${URL.createObjectURL(f)}"></div>`; 
+        $('#p_image_url').value = ''; // clear url if file selected
+    }
+  };
+  
+  // Image URL preview
+  $('#p_image_url').oninput = e => {
+      const url = e.target.value.trim();
+      if(url) {
+          $('#p_preview').innerHTML = `<div class="img-item"><img src="${escapeHtml(url)}" onerror="this.src='https://placehold.co/80x80?text=Error'"></div>`;
+          $('#p_image').value = ''; // clear file if url typed
+      } else {
+          if(!existing?.image) $('#p_preview').innerHTML = '';
+      }
+  };
+
   $('#p_gallery').onchange = e => {
     Array.from(e.target.files).forEach(f => {
       const d = document.createElement('div'); d.className = 'img-item';
@@ -461,14 +494,24 @@ function openProductForm(existing = null) {
     });
   };
   
-  // SUBMIT WITH SLUG GENERATION
+  // SUBMIT WITH SLUG GENERATION & CUSTOM IMAGE LOGIC
   $('#productForm').onsubmit = async (e) => {
     e.preventDefault();
     const btn = $('#p_submit'); btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Saving...';
     try {
       let image = existing?.image || null;
+      
+      // Check if file is uploaded
       const f = $('#p_image').files[0];
-      if (f) image = await uploadImage(f, 'products');
+      // Check if URL is pasted
+      const urlInput = $('#p_image_url').value.trim();
+      
+      if (f) {
+        image = await uploadImage(f, 'products');
+      } else if (urlInput) {
+        image = urlInput;
+      }
+
       let images = existing?.images || [];
       const newFiles = Array.from($('#p_gallery').files);
       if (newFiles.length) {
@@ -492,7 +535,8 @@ function openProductForm(existing = null) {
         badge: $('#p_badge').value.trim() || 'New Arrivals',
         description: $('#p_description').value.trim(),
         status: $('#p_status').value,
-        image, images,
+        image, 
+        images,
         updatedAt: serverTimestamp(),
       };
       if (existing?.id) { await updateDoc(doc(db, 'products', existing.id), data); toast('Product updated'); }
